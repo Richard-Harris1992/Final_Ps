@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { loginUser } from '../api';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+const Login = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -13,14 +17,16 @@ function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const logins = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    const res = await loginUser(formData);
+    navigate(`/users/${res.data.id}`);
   };
+
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={logins}>
         <h2>Login</h2>
         <input
           type="email"

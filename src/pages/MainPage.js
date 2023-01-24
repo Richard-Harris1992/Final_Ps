@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/Header';
-import WelcomeMessage from './components/WelcomeMessage';
-import LinkButtonContainer from './components/LinkButtonContainer';
+import Header from '../components/Header';
+import WelcomeMessage from '../components/WelcomeMessage';
+import LinkButtonContainer from '../components/LinkButtonContainer';
 import './MainPage.css';
 
 

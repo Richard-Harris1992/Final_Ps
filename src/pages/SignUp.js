@@ -1,45 +1,44 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { createUser } from '../api';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstname, setFirstName] = useState('');
+  const [lastname, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = async (e) => {
+  const nav = useNavigate();
+  
+  const createNewUser =  (e) => {
     e.preventDefault();
 
+      
     const newUser = {
-      firstName: firstName,
-      lastName: lastName,
+      firstname: firstname,
+      lastname: lastname,
       username: username,
       email: email,
       password: password,
     };
 
     //axios route, later move this to its own file
-    try {
-      const res = await axios.post('http://localhost:3000/signup', newUser);
-      console.log(res.data);
-    } catch (err) {
-      console.log(err);
-    }
+    createUser(newUser);
+    nav('/login');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={createNewUser}>
       <input
         type="text"
         placeholder="First Name"
-        value={firstName}
+        value={firstname}
         onChange={(e) => setFirstName(e.target.value)}
       />
       <input
         type="text"
         placeholder="Last Name"
-        value={lastName}
+        value={lastname}
         onChange={(e) => setLastName(e.target.value)}
       />
       <input
