@@ -1,24 +1,22 @@
-import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
-import MainPage from './pages/MainPage';
-import UserHomePage from './pages/UserHomePage';
+import Landing from './components/Pages/Landing';
+import SignUp from './components/Pages/SignUp';
+import Login from './components/Pages/Login';
+import Dashboard from './components/Pages/Dashboard';
+import ProfileForm from './components/Pages/ProfileForm';
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/users/:id" element={<UserHomePage />} />
-        </Routes>
-      </Router>
-    </div>
-  );
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard/:id" element={<Dashboard />} />
+        <Route path="create-profile" element={< ProfileForm />} />
+      </Routes>
+    </Router>
+)}
 
 export default App;
-
