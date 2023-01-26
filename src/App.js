@@ -5,6 +5,7 @@ import SignUp from './components/Pages/SignUp';
 import Login from './components/Pages/Login';
 import Dashboard from './components/Pages/Dashboard';
 import ProfileForm from './components/Pages/ProfileForm';
+import EditProfile from './components/Pages/EditProfile'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard/:id" element={<Dashboard />} />
         <Route path="create-profile" element={< ProfileForm />} />
+        <Route path="/:id/edit-profile" element={< EditProfile />} />
       </Routes>
     </Router>
 )}

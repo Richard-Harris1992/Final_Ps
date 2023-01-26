@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getCurrentProfile, deleteAccount } from '../../api/profileApi';
-import DashboardActions from '../DashboardActions';
+import EditProfileButton from '../EditProfileButton';
+
 
 const Dashboard = () => {
 const [profile, setProfile] = useState(null);
@@ -31,16 +32,17 @@ useEffect(() => {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
-
+    console.log(profile)
+   
     return (
         <section className="container">
             <h1 className="large text-primary">Dashboard</h1>
             <p className="lead">
-                <i className="fas fa-user" /> Welcome {profile.name}
+                <i className="fas fa-user" /> Welcome 
             </p>
-            {profile !== null ? (
+            {profile !== undefined ? (
                 <>
-                    {<DashboardActions />
+                    {<EditProfileButton id={id} />
                     /*<Experience experience={profile.experience} />
                     <Education education={profile.education} /> */}
 

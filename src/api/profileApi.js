@@ -1,10 +1,15 @@
 import axios from 'axios';
-const baseURL = 'http://localhost:5000';
+import { baseURL } from './url';
+
+
+
+
+
 // Get current users profile
 export const getCurrentProfile = async (id) => {
     try {
-        const res = await axios.get(`${ baseURL }/dashboard/${id}`);
-        return res;
+        const response = await axios.get(`${ baseURL }/dashboard/${id}`);
+        return response;
     } catch (err) {
         console.error(err);
         return err.response;
@@ -35,17 +40,26 @@ export const getCurrentProfile = async (id) => {
 
 
 
-    // Create or update profile
-    export const createProfile = async (formData) => {
-        console.log('I am here');
-        console.log(formData)
+    // Create profile
+    export const createProfile = async (data) => {
         try {
-            const response = await axios.post(`${baseURL}/profile`, formData);
-            console.log(response, response.data);
-            return response.data;
+            const response = await axios.post(`${baseURL}/create-profile`, data);
+            console.log(response)
+            return response;
         } catch (err) {
-            console.error(err);
             return err.response;
         }
     };
+
+// Edit profile 
+export const editProfile = async (id,data) => {
+    try {
+        console.log('Made it');
+        const response = await axios.put(`${baseURL}/dashboard/${id}`, data)
+        return response;
+    } catch (err) {
+        return err.response;
+    }
+}
+
 

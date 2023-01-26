@@ -7,6 +7,9 @@ const Education = () => {
     const [education, setEducation] = useState([]);
     const [errors, setErrors] = useState({});
 
+
+
+
     const loadEducation = async () => {
         try {
             const res = await axios.get('http://localhost:5000/api/profile/education');
@@ -23,7 +26,7 @@ const Education = () => {
     const deleteEducation = async (id) => {
         try {
             await axios.delete('http://localhost:5000/api/profile/education/${id}');
-                loadEducation();
+            loadEducation();
         } catch (err) {
             setErrors(err.response.data);
         }
