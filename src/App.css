@@ -45,7 +45,11 @@ img {
 }
 
 /* Text Styles*/
-
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
 
 .large {
   font-size: 3rem;
