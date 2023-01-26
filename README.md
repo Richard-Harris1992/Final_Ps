@@ -1,4 +1,4 @@
-# GEchoSphere
+# EchoSphere
 
 EchoSphere is a social media platform where users can create their profiles, connect with other users, and share their thoughts and ideas.
 
