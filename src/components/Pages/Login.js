@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../api/apis';
+import NavBar from '../NavBar';
 
 const Login = () => {
     const nav = useNavigate();
@@ -34,6 +35,8 @@ const Login = () => {
         
 
     return (
+        <>
+        <NavBar />
         <section className="container">
             <h1 className="large text-primary">Sign In</h1>
             <p className="lead">
@@ -65,6 +68,7 @@ const Login = () => {
                 Don't have an account? <Link to="/signup">Sign Up</Link>
             </p>
         </section>
+        </>
     );
 };
 

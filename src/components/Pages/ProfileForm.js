@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createProfile } from '../../api/profileApi';
+import NavBar from '../NavBar';
 
 
 const ProfileForm = () => {
@@ -34,6 +35,8 @@ const ProfileForm = () => {
 
 
     return (
+        <>
+        <NavBar />
         <section className="container">
             <h1 className="large text-primary">Create Your Profile</h1>
             <p className="lead">
@@ -107,9 +110,11 @@ const ProfileForm = () => {
                 </div>
                 <div className="form-group">
                     <input
-                        type="file"
+                        type="text"
                         name="avatar"
-                        onChange={e => setFormData({ ...formData, avatar: e.target.files[0] })}
+                        placeholder='Avatar'
+                        value={avatar}
+                        onChange={onChange}
                     />
                 </div>
 
@@ -131,6 +136,7 @@ const ProfileForm = () => {
                 </Link>
             </form>
         </section>
+        </>
     );
 };
 

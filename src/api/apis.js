@@ -15,9 +15,5 @@ export const login = async (credentials) => {
     const response = axios.post(URL, credentials);
     return response   
 }
-export const getCurrentProfile = (data) => {
-    const URL = `${baseURL}/dashboard/:id`;
-    const response = axios.get(URL, data);
-    return response
-  }
+
   

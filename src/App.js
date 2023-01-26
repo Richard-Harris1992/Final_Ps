@@ -7,8 +7,10 @@ import Dashboard from './components/Pages/Dashboard';
 import ProfileForm from './components/Pages/ProfileForm';
 import EditProfile from './components/Pages/EditProfile'
 
+
 function App() {
   return (
+    
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -19,6 +21,7 @@ function App() {
         <Route path="/:id/edit-profile" element={< EditProfile />} />
       </Routes>
     </Router>
+
 )}
 
 export default App;
